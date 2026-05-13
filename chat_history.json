@@ -1,0 +1,45 @@
+{
+    "Chat 1": [
+        [
+            "user",
+            "What is admission process?"
+        ],
+        [
+            "assistant",
+            "\nThe admission process starts every year in June. Students must submit 10th and 12th mark sheets. Online application forms are available on the college portal. Admission confirmation requires document verification and fee payment.\n\n---\n\n\u23f1\ufe0f Response Time:\n0.57 sec\n"
+        ],
+        [
+            "user",
+            "What is admission process?\n\n"
+        ],
+        [
+            "assistant",
+            "\nThe admission process starts every year in June. Students must submit 10th and 12th mark sheets. Online application forms are available on the college portal. Admission confirmation requires document verification and fee payment.\n\n---\n\n\u23f1\ufe0f Response Time:\n0.36 sec\n"
+        ],
+        [
+            "user",
+            "What is admission process?\n\n"
+        ],
+        [
+            "assistant",
+            "\nThe admission process starts every year in June. Students must submit 10th and 12th mark sheets. Online application forms are available on the college portal. Admission confirmation requires document verification and fee payment.\n\n---\n\n\u23f1\ufe0f Response Time:\n0.27 sec\n"
+        ],
+        [
+            "user",
+            "What are the documents required?"
+        ],
+        [
+            "assistant",
+            "\nStudents must submit 10th and 12th mark sheets.\n\n---\n\n\u23f1\ufe0f Response Time:\n0.24 sec\n"
+        ],
+        [
+            "user",
+            "What are the documents required?\n\n"
+        ],
+        [
+            "assistant",
+            "\nStudents must submit 10th and 12th mark sheets.\n\n---\n\n\u23f1\ufe0f Response Time:\n0.34 sec\n"
+        ]
+    ],
+    "Chat 2": []
+}
