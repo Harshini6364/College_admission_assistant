@@ -310,23 +310,38 @@ if query:
 
         st.info(ground_truth)
 
-        # Simple Evaluation Logic
+        # ---------------------------
+        # SIMPLE EVALUATION SCORE
+        # ---------------------------
 
         if (
             response_text.lower()
-            !=
+            ==
             "the information is not available in the uploaded documents."
-        ):
-
-            st.success(
-                "Evaluation Status: Grounded Answer"
-            )
-
-        else:
-
+            ):
+            evaluation_score = "Low"
             st.warning(
                 "Evaluation Status: No Relevant Context Found"
-            )
+                )
+
+        elif (
+            response_text.lower()
+            in
+            ground_truth.lower()
+            ):
+            evaluation_score = "High"
+            st.success(
+                "Evaluation Status: Correct Answer"
+                )
+
+        else:
+            evaluation_score = "Medium"
+            st.info(
+                "Evaluation Status: Partially Correct"
+                )
+        st.write(
+            f"### 📈 Evaluation Score: {evaluation_score}"
+        )
 
         st.session_state.chat_sessions[
             current_chat

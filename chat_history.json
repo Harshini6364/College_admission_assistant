@@ -81,6 +81,38 @@
         [
             "assistant",
             "\nThe information is not available in the uploaded documents.\n\n---\n\n\u23f1\ufe0f Response Time:\n0.87 sec\n"
+        ],
+        [
+            "user",
+            "what is dbms?"
+        ],
+        [
+            "assistant",
+            "\nThe information is not available in the uploaded documents.\n\n---\n\n\u23f1\ufe0f Response Time:\n1.77 sec\n"
+        ],
+        [
+            "user",
+            "What is dbms?"
+        ],
+        [
+            "assistant",
+            "\nThe information is not available in the uploaded documents.\n\n---\n\n\u23f1\ufe0f Response Time:\n0.77 sec\n"
+        ],
+        [
+            "user",
+            "What is admission process?"
+        ],
+        [
+            "assistant",
+            "\nAdmission process starts every year in June. Students must submit 10th and 12th mark sheets. Online application forms are available on the college portal. Admission confirmation requires document verification and fee payment.\n\n---\n\n\u23f1\ufe0f Response Time:\n0.95 sec\n"
+        ],
+        [
+            "user",
+            "What are the documents required?"
+        ],
+        [
+            "assistant",
+            "\n10th and 12th mark sheets.\n\n---\n\n\u23f1\ufe0f Response Time:\n0.92 sec\n"
         ]
     ],
     "Chat 3": [
