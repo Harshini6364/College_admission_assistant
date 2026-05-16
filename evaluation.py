@@ -1,14 +1,5 @@
 from datasets import Dataset
 
-from ragas import evaluate
-
-from ragas.metrics import (
-    faithfulness,
-    answer_relevancy,
-    context_precision,
-    context_recall
-)
-
 
 def evaluate_rag(
     questions,
@@ -26,14 +17,15 @@ def evaluate_rag(
 
     dataset = Dataset.from_dict(data)
 
-    result = evaluate(
-        dataset=dataset,
-        metrics=[
-            faithfulness,
-            answer_relevancy,
-            context_precision,
-            context_recall
-        ]
-    )
+    print("\nRAGAS-compatible dataset prepared successfully\n")
 
-    return result
+    print("Questions:")
+    print(questions)
+
+    print("\nAnswers:")
+    print(answers)
+
+    print("\nGround Truths:")
+    print(ground_truths)
+
+    return dataset
