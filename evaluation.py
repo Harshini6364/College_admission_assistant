@@ -1,5 +1,7 @@
 from datasets import Dataset
 
+import json
+
 
 def evaluate_rag(
     questions,
@@ -17,15 +19,34 @@ def evaluate_rag(
 
     dataset = Dataset.from_dict(data)
 
-    print("\nRAGAS-compatible dataset prepared successfully\n")
+    results = []
 
-    print("Questions:")
-    print(questions)
+    for i in range(len(questions)):
 
-    print("\nAnswers:")
-    print(answers)
+        result = {
+            "question": questions[i],
+            "answer": answers[i],
+            "context": contexts[i],
+            "ground_truth": ground_truths[i]
+        }
 
-    print("\nGround Truths:")
-    print(ground_truths)
+        results.append(result)
+
+    with open(
+        "evaluation_results.json",
+        "w",
+        encoding="utf-8"
+    ) as f:
+
+        json.dump(
+            results,
+            f,
+            indent=4,
+            ensure_ascii=False
+        )
+
+    print(
+        "\nEvaluation results saved successfully\n"
+    )
 
     return dataset

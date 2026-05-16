@@ -39,9 +39,50 @@
         [
             "assistant",
             "\nStudents must submit 10th and 12th mark sheets.\n\n---\n\n\u23f1\ufe0f Response Time:\n0.34 sec\n"
+        ],
+        [
+            "user",
+            "What is admission process?\n\n"
+        ],
+        [
+            "assistant",
+            "\nThe admission process starts every year in June. Students must submit 10th and 12th mark sheets. Online application forms are available on the college portal. Admission confirmation requires document verification and fee payment.\n\n---\n\n\u23f1\ufe0f Response Time:\n0.63 sec\n"
+        ],
+        [
+            "user",
+            "what is admission fee?"
+        ],
+        [
+            "assistant",
+            "\nThe information is not available in the uploaded documents.\n\n---\n\n\u23f1\ufe0f Response Time:\n3.2 sec\n"
+        ],
+        [
+            "user",
+            "What is django?"
+        ],
+        [
+            "assistant",
+            "\nThe information is not available in the uploaded documents.\n\n---\n\n\u23f1\ufe0f Response Time:\n0.37 sec\n"
         ]
     ],
-    "Chat 2": [],
+    "Chat 2": [
+        [
+            "user",
+            "What is admission process?"
+        ],
+        [
+            "assistant",
+            "\nThe admission process starts every year in June. Students must submit 10th and 12th mark sheets. Online application forms are available on the college portal. Admission confirmation requires document verification and fee payment.\n\n---\n\n\u23f1\ufe0f Response Time:\n1.71 sec\n"
+        ],
+        [
+            "user",
+            "what is django"
+        ],
+        [
+            "assistant",
+            "\nThe information is not available in the uploaded documents.\n\n---\n\n\u23f1\ufe0f Response Time:\n0.87 sec\n"
+        ]
+    ],
     "Chat 3": [
         [
             "user",

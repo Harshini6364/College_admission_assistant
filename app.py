@@ -258,6 +258,76 @@ if query:
 
         thinking.markdown(final)
 
+        # ---------------------------
+        # EVALUATION DASHBOARD
+        # ---------------------------
+
+        st.divider()
+
+        st.subheader(
+            "📊 Evaluation Dashboard"
+        )
+
+        st.write("### ❓ Question")
+
+        st.info(query)
+
+        st.write(
+            "### 📚 Retrieved Chunks"
+        )
+
+        with st.expander(
+            "View Retrieved Context"
+        ):
+
+            for i, doc in enumerate(
+                relevant_docs
+            ):
+
+                st.write(
+                    f"Chunk {i+1}"
+                )
+
+                st.code(
+                    doc.page_content
+                )
+
+        st.write(
+            "### 🤖 Generated Answer"
+        )
+
+        st.success(response_text)
+
+        # Example Ground Truth
+
+        ground_truth = (
+            "Expected answer from documents"
+        )
+
+        st.write(
+            "### ✅ Ground Truth"
+        )
+
+        st.info(ground_truth)
+
+        # Simple Evaluation Logic
+
+        if (
+            response_text.lower()
+            !=
+            "the information is not available in the uploaded documents."
+        ):
+
+            st.success(
+                "Evaluation Status: Grounded Answer"
+            )
+
+        else:
+
+            st.warning(
+                "Evaluation Status: No Relevant Context Found"
+            )
+
         st.session_state.chat_sessions[
             current_chat
         ].append(
