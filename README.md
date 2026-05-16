@@ -26,7 +26,7 @@ A Hybrid Retrieval-Augmented Generation (RAG) based chatbot designed to answer c
 
 # Project Architecture
 
-![UML Diagram(https://github.com/Harshini6364/College_admission_assistant/blob/d60840be0062d75fb6d60e9157fbc3cd769fc1d8/UML%20Diagram.png?raw=true)
+![UML Diagram](https://github.com/Harshini6364/College_admission_assistant/blob/d60840be0062d75fb6d60e9157fbc3cd769fc1d8/UML%20Diagram.png?raw=true)
 
 ```text
 User Query
