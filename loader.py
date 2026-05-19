@@ -1,33 +1,54 @@
 # Handles:
-# PDF loading
-# OCR
-# text extraction
+# PDF loading (text, scanned, tables, images)
+# Text file loading
+# Uses Docling for robust PDF extraction
 
 import os
-import pytesseract
-
-from pdf2image import convert_from_path
 
 from langchain.schema import Document
 
-from langchain_community.document_loaders import (
-    PyPDFLoader,
-    TextLoader
-)
+from langchain_community.document_loaders import TextLoader
 
-from config import POPPLER_PATH
+from docling.document_converter import DocumentConverter
 
 
-def load_documents(data_folder):
+# Single converter instance reused across all files
+_converter = DocumentConverter()
 
+
+def _load_pdf(file_path: str) -> Document:
+    """
+    Load a PDF using Docling.
+    Handles text, scanned, tables, and image-based PDFs.
+    Returns a single Document with markdown-formatted content.
+    """
+    result = _converter.convert(file_path)
+    markdown_text = result.document.export_to_markdown()
+
+    return Document(
+        page_content=markdown_text,
+        metadata={"source": file_path}
+    )
+
+
+def _load_text(file_path: str) -> list[Document]:
+    """
+    Load a plain text file using LangChain's TextLoader.
+    """
+    loader = TextLoader(file_path)
+    return loader.load()
+
+
+def load_documents(data_folder: str) -> list[Document]:
+    """
+    Load all documents from the given folder.
+    Supports: PDF (text/scanned/tables/images), TXT
+    """
     documents = []
 
     for file in os.listdir(data_folder):
 
-        file_path = os.path.join(
-            data_folder,
-            file
-        )
+        file_path = os.path.join(data_folder, file)
 
         if os.path.isdir(file_path):
             continue
@@ -35,55 +56,14 @@ def load_documents(data_folder):
         try:
 
             if file.endswith(".pdf"):
-
-                loader = PyPDFLoader(file_path)
-
-                loaded_docs = loader.load()
-
-                extracted_text = ""
-
-                for d in loaded_docs:
-                    extracted_text += d.page_content.strip()
-
-                # NORMAL PDF
-                if len(extracted_text) > 50:
-
-                    documents.extend(loaded_docs)
-
-                # SCANNED PDF
-                else:
-
-                    images = convert_from_path(
-                        file_path,
-                        dpi=150,
-                        poppler_path=POPPLER_PATH
-                    )
-
-                    ocr_text = ""
-
-                    for img in images:
-
-                        img = img.convert("L")
-
-                        text = pytesseract.image_to_string(img)
-
-                        ocr_text += text + "\n"
-
-                    documents.append(
-                        Document(
-                            page_content=ocr_text,
-                            metadata={"source": file_path}
-                        )
-                    )
+                doc = _load_pdf(file_path)
+                documents.append(doc)
 
             else:
-
-                loader = TextLoader(file_path)
-
-                documents.extend(loader.load())
+                docs = _load_text(file_path)
+                documents.extend(docs)
 
         except Exception as e:
-
             print(f"Could not load {file}: {e}")
 
     return documents
