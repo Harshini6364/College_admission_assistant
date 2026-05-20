@@ -1,30 +1,32 @@
-faiss-cpu==1.13.2
-groq==0.37.1
+docling
 
-langchain==0.1.20
-langchain-community==0.0.38
-langchain-core==0.1.53
-langchain-groq==0.1.4
-langchain-huggingface==0.0.3
-langchain-text-splitters==0.0.2
+faiss-cpu
 
-numpy==1.26.4
+groq
+langchain
+langchain-community
+langchain-core
+langchain-groq
+langchain-huggingface
+langchain-text-splitters
 
-pillow==12.2.0
-pypdf==6.11.0
+numpy
 
-python-dotenv==1.2.2
+python-dotenv
 
-rank-bm25==0.2.2
+rank-bm25
 
-sentence-transformers==5.5.0
-scikit-learn==1.8.0
-scipy==1.17.1
+sentence-transformers
+scikit-learn
+scipy
 
-streamlit==1.57.0
+streamlit
 
-torch==2.11.0
-transformers==5.8.0
-tokenizers==0.22.2
+torch
+transformers
+tokenizers
 
-huggingface_hub==1.14.0
+ragas
+
+huggingface_hub
+datasets

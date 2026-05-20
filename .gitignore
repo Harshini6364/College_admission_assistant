@@ -2,3 +2,6 @@ venv/
 .env
 chroma_db/
 __pycache__/
+evaluation_results.json
+test_evaluation_results.json
+chat_history.json
