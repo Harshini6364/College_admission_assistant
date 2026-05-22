@@ -36,9 +36,6 @@ def setup_rag(
         doc.page_content.lower().split()
         for doc in docs
     ]
- 
     bm25 = BM25Okapi(tokenized_docs)
     logger.info("BM25 index built")
- 
     return docs, vectorstore, bm25
- 
