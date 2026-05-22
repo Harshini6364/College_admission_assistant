@@ -1,4 +1,5 @@
 docling
+pypdf
 
 faiss-cpu
 
@@ -23,6 +24,7 @@ scipy
 streamlit
 
 torch
+torchvision
 transformers
 tokenizers
 
