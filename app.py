@@ -1,19 +1,13 @@
 import time
 
 import streamlit as st
-from langchain_groq import ChatGroq
 
-from config import (
-    GROQ_API_KEY,
-    LLM_MODEL,
-    LLM_TEMPERATURE,
-    DATA_FOLDER
-)
+from config import DATA_FOLDER
 
 from core.loader import load_documents
 from core.rag import setup_rag
 from core.retriever import retrieve_chunks
-from core.llm_handler import generate_response
+from core.llm_handler import LLMSingleton, generate_response
 
 from components.sidebar import render_sidebar
 from components.eval_panel import render_eval_panel
@@ -78,13 +72,9 @@ def initialize_rag(folder: str):
 docs, vectorstore, bm25 = initialize_rag(DATA_FOLDER)
 
 # ---------------------------
-# LLM
+# LLM — Singleton
 # ---------------------------
-llm = ChatGroq(
-    groq_api_key=GROQ_API_KEY,
-    model_name=LLM_MODEL,
-    temperature=LLM_TEMPERATURE
-)
+llm = LLMSingleton.get_instance()
 
 # ---------------------------
 # CHAT HISTORY DISPLAY
@@ -116,7 +106,7 @@ if query:
 
         start = time.time()
 
-        # Retrieve relevant chunks
+        # STAGE 3: Retrieve + Rerank + Refine
         relevant_docs = retrieve_chunks(query, docs, bm25, vectorstore)
 
         context = "\n\n".join([doc.page_content for doc in relevant_docs])
@@ -124,7 +114,7 @@ if query:
         # Load memory
         history = "\n".join(memory)
 
-        # Generate response
+        # STAGE 5: Generate
         response_text = generate_response(query, context, history, llm)
 
         # Update memory
@@ -132,7 +122,6 @@ if query:
         memory.append(f"Assistant: {response_text}")
 
         elapsed = round(time.time() - start, 2)
-
         final = f"{response_text}\n\n---\n\n⏱️ Response time: {elapsed} sec"
 
         placeholder.markdown(final)
