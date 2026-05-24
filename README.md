@@ -42,6 +42,12 @@ Students and parents often struggle to find specific information about admission
 
 ---
 
+##UML Diagram
+
+![image alt](https://github.com/Harshini6364/College_admission_assistant/blob/b80b83a61f20e87212eebb062ef9e55e9f1a191f/uml%20diagram.jpeg)
+
+---
+
 ## Features
 
 - 📄 PDF document ingestion using Docling (with PyPDFLoader fallback)
